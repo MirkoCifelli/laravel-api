@@ -22,7 +22,7 @@ class ProjectController extends Controller
 
     public function show(string $slug)
     {
-        $projects= Project::where('slug', $slug)->firstOrFail();
+        $projects= Project::where('slug', $slug)->with('type', 'technologies')->firstOrFail();
 
         return response()->json([
             'success' => true,
