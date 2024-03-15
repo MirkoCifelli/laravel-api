@@ -35,6 +35,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('admin.technologies.index') }}">Technologie</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.contacts.index') }}">Contatti</a>
+                        </li>
                     </ul>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf

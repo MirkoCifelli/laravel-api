@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\MainController as AdminMainController;
 use App\Http\Controllers\Admin\ProjectController as AdminProjectContoller;
 use App\Http\Controllers\Admin\TypeController as AdminTypeContoller;
 use App\Http\Controllers\Admin\TechnologyController as AdminTechnologyContoller;
+use App\Http\Controllers\Admin\ContactController as AdminContactController;
 
 
 
@@ -30,9 +31,18 @@ Route::prefix('admin')
     ->group(function () {
 
     Route::get('/dashboard', [AdminMainController::class, 'dashboard'])->name('dashboard');
+
     Route::resource('projects',AdminProjectContoller::class);
+
     Route::resource('types',AdminTypeContoller::class);
+
     Route::resource('technologies',AdminTechnologyContoller::class);
+    
+    Route::resource('contacts', AdminContactController::class)->only([
+        'index',
+        'show',
+        'destroy',
+    ]);
 
 });
 
